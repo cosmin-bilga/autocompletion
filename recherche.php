@@ -13,7 +13,7 @@
     <main>
         <div class="flex justify-center bg-gray-200 p-2 w-[100vw]">
             <form class="relative" action="recherche.php">
-                <span class="absolute top-18 left-2 bg-white rounded-md p-1" id="search-list"></span>
+                <span class="absolute top-18 left-2 bg-white rounded-md" id="search-list"></span>
                 <p class="font-bolder text-2xl">Recherche animaux:</p>
                 <input class="bg-white rounded-xl p-2" type="text" placeholder="Search..." name="search" id="search-field" list="search-list">
                 <input class="bg-white hover:bg-gray-300 p-2 rounded-xl" type="submit" value="Search">

@@ -20,9 +20,14 @@ function fillList(data) {
 
   for (let elem of data[0]) {
     //console.log(elem);
+    const link = document.createElement("a");
+    link.href = "recherche.php?search=" + elem["nom"];
     const option = document.createElement("li");
+    option.classList.add("hover:bg-gray-200", "p-1");
     option.innerText = elem["nom"];
-    firstList.appendChild(option);
+    //option.appendChild(link);
+    link.appendChild(option);
+    firstList.appendChild(link);
   }
   dataList.appendChild(firstList);
   const separator = document.createElement("hr");
@@ -30,9 +35,14 @@ function fillList(data) {
   const secondList = document.createElement("ul");
   for (let elem of data[1]) {
     //console.log(elem);
+    const link = document.createElement("a");
+    link.href = "recherche.php?search=" + elem["nom"];
     const option = document.createElement("li");
+    option.classList.add("hover:bg-gray-200", "p-1");
     option.innerText = elem["nom"];
-    secondList.appendChild(option);
+    //option.appendChild(link);
+    link.appendChild(option);
+    secondList.appendChild(link);
   }
   dataList.appendChild(secondList);
   if (data[0].length > 0 || data[1].length > 0)
