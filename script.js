@@ -13,7 +13,7 @@ async function getList(value) {
   return data;
 }
 
-// TO REDO IN UL
+// REDONE WITH UL FOR SEPARATION
 function fillList(data) {
   dataList.innerHTML = "";
   const firstList = document.createElement("ul");
@@ -41,6 +41,7 @@ function fillList(data) {
   console.log(dataList);
 }
 
+// OLD VERSION USING DATALIST
 /* function fillList(data) {
   dataList.innerHTML = "";
   for (let elem of data[0]) {
@@ -78,38 +79,46 @@ if (searchField) {
 
 const searchResults = document.getElementById("search-results");
 
+function createElementLink(elem) {
+  const link = document.createElement("a");
+  link.href = "element.php?id=" + elem["id"];
+  const card = document.createElement("div");
+  card.classList.add(
+    "w-80",
+    "m-4",
+    "border",
+    "rounded-xl",
+    "bg-gray-200",
+    "p-2",
+    "flex",
+    "flex-col",
+    "items-center",
+    "hover:bg-gray-300"
+  );
+  const title = document.createElement("p");
+  title.classList.add("d");
+  title.innerText =
+    "Nom: " + (elem["nom"].charAt(0).toUpperCase() + elem["nom"].slice(1));
+  const id = document.createElement("p");
+  //id.classList.add("");
+  id.innerText = "ID: " + elem["id"];
+  const desc = document.createElement("p");
+  desc.classList.add("text-center");
+  desc.innerText = elem["description"];
+  card.append(title, id, desc);
+  link.appendChild(card);
+  return link;
+}
+
 function fillResearch(data) {
   searchResults.innerHTML = "";
   for (let elem of data[0]) {
     //console.log(elem);
-    const link = document.createElement("a");
-    link.href = "element.php?id=" + elem["id"];
-    const card = document.createElement("div");
-    card.classList.add(
-      "w-80",
-      "m-4",
-      "border",
-      "rounded-xl",
-      "bg-gray-200",
-      "p-2",
-      "flex",
-      "flex-col",
-      "items-center",
-      "hover:bg-gray-300"
-    );
-    const title = document.createElement("p");
-    title.classList.add("d");
-    title.innerText =
-      "Nom: " + (elem["nom"].charAt(0).toUpperCase() + elem["nom"].slice(1));
-    const id = document.createElement("p");
-    //id.classList.add("");
-    id.innerText = "ID: " + elem["id"];
-    const desc = document.createElement("p");
-    desc.classList.add("text-center");
-    desc.innerText = elem["description"];
-    card.append(title, id, desc);
-    link.appendChild(card);
-    searchResults.append(link);
+    searchResults.append(createElementLink(elem));
+  }
+  for (let elem of data[1]) {
+    //console.log(elem);
+    searchResults.append(createElementLink(elem));
   }
 }
 

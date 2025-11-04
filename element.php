@@ -20,7 +20,7 @@
                 <input class="bg-white hover:bg-gray-300 p-2 rounded-xl" type="submit" value="Search">
             </form>
         </div>
-        <div id="element-card" class="w-100 md:w-[50vw] md:mx-auto bg-gray-200 rounded-2xl mt-10 py-5"></div>
+        <div id="element-card" class="w-[100vw] md:w-[50vw] md:mx-auto bg-gray-200 rounded-2xl mt-10 py-5"></div>
     </main>
 
 </body>

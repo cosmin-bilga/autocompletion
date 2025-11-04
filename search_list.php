@@ -15,7 +15,7 @@ try {
     $res = $stmt->fetchAll();
     $sql = "SELECT * FROM animaux WHERE nom LIKE :name LIMIT 10";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([':name' => "%" . $search . "%"]);
+    $stmt->execute([':name' => "_%" . $search . "%"]);
     $res2 = $stmt->fetchAll();
     echo (json_encode([$res, $res2]));
 } catch (PDOException $e) {
